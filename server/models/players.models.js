@@ -11,7 +11,7 @@ const playerSchema = new mongoose.Schema(
 
     position:{
       type: String,
-      required:[true,'Name required!'],
+      required:[true,'Position required!'],
     },
 
     state:{
