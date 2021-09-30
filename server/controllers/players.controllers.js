@@ -1,10 +1,10 @@
 const Player = require('../models/players.models');
 
 const findPlayers = (req,res) =>{
-  Author.find({}).sort('name')
+  Player.find({}).sort('name')
       .then(results => res.json({data:results}))
       .catch(error=>{
-        res.json({error:error, message: 'Autores no encontrados'})
+        res.json({error:error, message: 'Jugadores no encontrados'})
         res.sendStatus(404)
       })
 };
@@ -13,7 +13,7 @@ const findSinglePlayer = (req,res) =>{
   Player.findOne({_id:req.params.id})
       .then(results => res.json({data:results}))
       .catch(error => {
-        res.json({error:error, message: 'Autor no encontrado'})
+        res.json({error:error, message: 'Jugador no encontrado'})
         res.sendStatus(404)
       })
 };
@@ -28,7 +28,7 @@ const createPlayer = (req,res) =>{
 };
 
 const updatePlayer = (req,res) =>{
-  Author.findOneAndUpdate({_id:req.params.id}, req.body, {new:true})
+  Player.findOneAndUpdate({_id:req.params.id}, req.body, {new:true})
       .then(results => res.json({data:results}))
       .catch(error=>{
         res.json({error:error, message:'Cant update a player'})
@@ -37,7 +37,7 @@ const updatePlayer = (req,res) =>{
 }
 
 const deletePlayer =(req,res) =>{
-  Author.deleteOne({_id:req.params.id})
+  Player.deleteOne({_id:req.params.id})
       .then(results => res.json({data:results}))
       .catch(error=>{
         res.json({error:error, message:'No se pudo eliminar el autor'})

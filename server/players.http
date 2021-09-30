@@ -1,0 +1,30 @@
+###GET PLAYERS
+
+GET http://localhost:8000/api/players
+
+###POST PLAYER
+POST http://localhost:8000/api/players/create
+Content-Type: application/json
+
+{
+  "name" : "Sergio Busquetes",
+  "position":"Forward",
+  "state":"Playing"
+}
+
+###GET A SINGLE PLAYER
+
+GET http://localhost:8000/api/players/6155f2c62269fad538852e80
+
+###PUT PLAYER
+PUT http://localhost:8000/api/players/update/6155f2ea2269fad538852e84
+Content-Type: application/json
+
+{
+  "name" : "Sergio Busquetes",
+  "position":"Midfielder",
+  "state":"Playing"
+}
+
+###DELETE PLAYER
+DELETE http://localhost:8000/api/players/delete/6155f2d42269fad538852e82

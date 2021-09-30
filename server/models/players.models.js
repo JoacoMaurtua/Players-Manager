@@ -5,7 +5,7 @@ const playerSchema = new mongoose.Schema(
     name:{
       type: String,
       required:[true,'Name required!'],
-      minlength: [3, 'El autor debe tener al menos 3 caracteres'],
+      minlength: [3, 'El jugador debe tener al menos 3 caracteres'],
 
     },
 

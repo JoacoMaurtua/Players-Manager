@@ -13,8 +13,8 @@ app.use(express.urlencoded({extended:true}))
 const mongodb = require('./config/mongodb.config');
 mongodb();
 
-
 //RUTAS
+app.use('/api',require('./router/players.routes'));
 
 
 app.listen(PORT,()=>{

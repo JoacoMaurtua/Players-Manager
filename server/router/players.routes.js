@@ -2,7 +2,7 @@ const express = require('express');
 
 const router = express();
 
-const {findPlayers,findSinglePlayer,createPlayer,updatePlayer,deletePlayer} = require('../controllers/authors.controllers') ;
+const {findPlayers,findSinglePlayer,createPlayer,updatePlayer,deletePlayer} = require('../controllers/players.controllers') ;
 
 router.get('/players', findPlayers);
 
