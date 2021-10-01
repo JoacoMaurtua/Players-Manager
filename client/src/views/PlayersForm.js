@@ -17,16 +17,31 @@ const PlayersForm = ({create,update}) => {
       ...formInput,
       [name]:value
     })
+  };
+
+  const addPlayers=()=>{
+    axios.post('api/players/create',formInput)
+          .then(res=>{
+            if(res.data.data){
+              console.log(res.data.data)
+            }else{
+              alert(res.data.error.message)
+            };
+          })
+          .catch(err=>console.lof(err))
   }
 
-  console.log(formInput);
+  const handleOnSubmit=e=>{
+    e.preventDefault();
+    addPlayers();
+  }
 
   return (
     <div>
       <Card style={{width: '35%', margin:'3rem auto'}}>
             <CardHeader style={{fontSize:'1.5rem'}}>Add Player</CardHeader>
             <CardBody>
-                <Form >
+                <Form onSubmit={handleOnSubmit}>
                     <FormGroup>
                         <Label for="tipo">Player Name : </Label>
                         <Input
