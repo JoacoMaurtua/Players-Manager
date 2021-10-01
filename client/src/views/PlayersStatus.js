@@ -4,15 +4,39 @@ import {Link} from 'react-router-dom';
 
 const PlayersStatus = ({list,setList}) => {
 
-  const {playerState,setPlayerState} = useState({
+  const [playerState,setPlayerState] = useState({
     state:''
-  })
+  });
 
-  //Extraer la data del boton
+  const [activeGreen,setActiveGreen] = useState(false);
+  const [activeRed,setActiveRed] = useState(false);
+  const [activeYellow, setActiveYellow] = useState(false);
+   
+  console.log(activeGreen);
+  console.log(activeRed);
+  console.log(activeYellow);
 
-  //crear una variable que se iguale al className o contenido de los botones
-  //una vez que la variable tome como valor el nombre de la clase o contenido del valor Seleccionado
-  //le pase ese valor al contenido de state
+  const verifyAndSetState =()=>{
+    if(activeGreen){
+      setActiveRed(false);
+      setActiveYellow(false);
+    }
+    if(activeRed){
+      setActiveGreen(false);
+      setActiveYellow(false);
+    }
+    if(activeYellow){
+      setActiveGreen(false);
+      setActiveRed(false);
+    }
+  }
+
+
+
+  
+ 
+  //en el lado del controlador crear un arreglo que almacene los estados
+  //3 variables si una en true las otras son false
 
   return (
     <div>
@@ -31,22 +55,38 @@ const PlayersStatus = ({list,setList}) => {
                           <Link to={`/update/${items._id}`}>{items.name}</Link>
                         </td>
                         <td style={{textAlign: 'center'}}>
-                            <Row>
-                              <Col md={4}>
-                                  <Button className="Playing" outline color="primary">Playing</Button>
-                              </Col>
-                              <Col md={4}>
-                                  <Button className="Not playing" outline color="primary">Not playing</Button>
-                              </Col>
-                              <Col md={4}>
-                                  <Button className="Undesided"outline color="primary">Undesided</Button>
-                              </Col>
+                            <Row className="buttonsContainer">
+                                <Col md={4}>
+                                    <Button
+                                      value={activeGreen}
+                                      className="Playing" 
+                                      outline color="primary"
+                                      onClick={()=>setActiveGreen(!activeGreen)}
+                                    >Playing</Button>
+                                </Col>
+                                <Col md={4}>
+                                    <Button 
+                                      value={activeRed}
+                                      className="Not-playing" 
+                                      outline color="primary"
+                                      onClick={()=>setActiveRed(!activeRed)}
+                                    >Not playing</Button>
+                                </Col>
+                                <Col md={4}>
+                                    <Button 
+                                      value={activeYellow}
+                                      className="Undesided"
+                                      outline color="primary"
+                                      onClick={()=>setActiveYellow(!activeYellow)}
+                                    >Undesided</Button>
+                                </Col>
                             </Row>
                         </td>
                     </tr>
+                 
                 ))}
             </tbody>
-        </Table> 
+        </Table>
     </div>
   );
 }

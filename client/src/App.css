@@ -18,6 +18,32 @@
   margin-right: 3rem;
 }
 
-.btn-playing:hover{
-  background-color:rgb(80, 240, 80);
+.col-md-4 .Playing:focus{
+  color: white;
+  background-color: rgb(61, 211, 61);
+}
+
+.col-md-4 .Playing:active{
+  color: white;
+  background-color: rgb(61, 211, 61);
+}
+
+.col-md-4 .Not-playing:focus{
+  color: white;
+  background-color: rgb(214, 30, 39);
+}
+
+.col-md-4 .Not-playing:active{
+  color: white;
+  background-color: rgb(214, 30, 39);
+}
+
+.col-md-4 .Undesided:focus{
+  color: white;
+  background-color: rgb(219, 206, 17);
+}
+
+.col-md-4 .Undesided:active{
+  color: white;
+  background-color: rgb(219, 206, 17);
 }
