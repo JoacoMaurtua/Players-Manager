@@ -7,12 +7,7 @@ import axios from 'axios';
 const ManagePlayers = ({list,setList}) => {
   return (
     <div className="mainContainer">
-      <Link to={`/create`}>
-          <h3>Manage players</h3>
-      </Link>
-      <Link to={'/status'}>
-          <h3>Manage player Status</h3>
-      </Link>
+      
       <Table striped>
             <thead>
                 <tr>

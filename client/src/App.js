@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import axios from 'axios';
 import ManagePlayers from './views/ManagePlayers';
 import PlayersStatus from './views/PlayersStatus';
-import Form from './views/Form';
+import PlayersForm from './views/PlayersForm';
+import {Link} from "react-router-dom";
 
 function App() {
 
@@ -24,7 +25,24 @@ function App() {
 
   return (
     <div className="App">
+     
       <Router>
+        <div className="manageTitles">
+              <Link to={`/`}>
+                  <h3>Manage players</h3>
+              </Link>
+              <Link to={'/status'}>
+                  <h3>Manage player Status</h3>
+              </Link>
+        </div>
+        <div className="listTitles">
+          <Link to={`/`}>
+                <h4>List</h4>
+            </Link>
+            <Link to={'/create'}>
+                <h4>Add player</h4>
+            </Link>
+        </div>
         <Switch>
           <Route exact path={`/`}>
             {
@@ -36,10 +54,10 @@ function App() {
               <PlayersStatus/>
           </Route>
           <Route exact path={`/create`}>
-            <Form create={true}/>
+            <PlayersForm create={true}/>
           </Route>
           <Route exact path={`/update`}>
-            <Form update={true}/>
+            <PlayersForm update={true}/>
           </Route>
         </Switch>
       </Router>

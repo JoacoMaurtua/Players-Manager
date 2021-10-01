@@ -1,5 +1,21 @@
 .App {
   text-align: center;
+  margin-top: 3rem;
+}
+
+.mainContainer{
+  margin-top: 4rem;
+}
+
+.manageTitles h3{
+  display: inline-block;
+  margin-right: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.listTitles h4{
+  display: inline-block;
+  margin-right: 3rem;
 }
 
 .App-logo {
