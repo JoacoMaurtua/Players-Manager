@@ -51,7 +51,7 @@ function App() {
              
           </Route>
           <Route excat path={`/status`}>
-              <PlayersStatus/>
+              <PlayersStatus list={data} setList={setData}/>
           </Route>
           <Route exact path={`/create`}>
             <PlayersForm create={true}/>
