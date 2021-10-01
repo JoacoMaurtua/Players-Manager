@@ -5,6 +5,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const PlayersForm = ({create,update}) => {
+  const {id} = useParams();
 
   const [formInput, setFormInput] = useState({
     name:'',
@@ -29,17 +30,39 @@ const PlayersForm = ({create,update}) => {
             };
           })
           .catch(err=>console.lof(err))
+  };
+
+  useEffect(()=>{
+    if(id){
+      axios.get(`/api/players/${id}`)
+           .then(res => setFormInput(res.data.data))
+    }
+  });
+
+  const updatePlayers=()=>{
+    axios.put(`/api/players/update/${id}`,formInput)
+         .then(res=>{
+           console.log(res.data.data)
+         })
   }
 
   const handleOnSubmit=e=>{
     e.preventDefault();
-    addPlayers();
+    if(id){
+      updatePlayers();
+    }else{
+      addPlayers();
+    }
   }
 
   return (
     <div>
       <Card style={{width: '35%', margin:'3rem auto'}}>
-            <CardHeader style={{fontSize:'1.5rem'}}>Add Player</CardHeader>
+            {
+              create?  <CardHeader style={{fontSize:'1.5rem'}}>Add Player</CardHeader>:
+              update?  <CardHeader style={{fontSize:'1.5rem'}}>Edit Player</CardHeader>:''
+            }
+         
             <CardBody>
                 <Form onSubmit={handleOnSubmit}>
                     <FormGroup>

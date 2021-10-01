@@ -19,7 +19,9 @@ const ManagePlayers = ({list,setList}) => {
             <tbody>
                 {list&&list.map((items, index) => (
                     <tr key={index}>
-                        <td style={{textAlign: 'center'}}>{items.name}</td>
+                        <td style={{textAlign: 'center'}}>
+                          <Link to={`/update/${items._id}`}>{items.name}</Link>
+                        </td>
                         <td style={{textAlign: 'center'}}>{items.position}</td>
                         <td style={{textAlign: 'center'}}>
                             <Row>

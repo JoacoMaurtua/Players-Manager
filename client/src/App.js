@@ -56,7 +56,7 @@ function App() {
           <Route exact path={`/create`}>
             <PlayersForm create={true}/>
           </Route>
-          <Route exact path={`/update`}>
+          <Route exact path={`/update/:id`}>
             <PlayersForm update={true}/>
           </Route>
         </Switch>
