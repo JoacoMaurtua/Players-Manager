@@ -5,26 +5,50 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const PlayersForm = ({create,update}) => {
+
+  const [formInput, setFormInput] = useState({
+    name:'',
+    position:''
+  });
+
+  const handleOnChange =(e)=>{
+    const {name,value} = e.target;
+    setFormInput({
+      ...formInput,
+      [name]:value
+    })
+  }
+
+  console.log(formInput);
+
   return (
     <div>
       <Card style={{width: '35%', margin:'3rem auto'}}>
-            <CardHeader>Formulario</CardHeader>
+            <CardHeader style={{fontSize:'1.5rem'}}>Add Player</CardHeader>
             <CardBody>
                 <Form >
                     <FormGroup>
                         <Label for="tipo">Player Name : </Label>
-                        <Input 
+                        <Input
+                          name="name"
+                          value={formInput.name}
+                          style={{marginBottom:'1rem'}} 
                           type="text" 
                           id="tipo"
-                          name="name"
+                          onChange={handleOnChange}
+                
                         /> 
                     </FormGroup>
                     <FormGroup>
                         <Label for="tipo">Preferred Position : </Label>
-                        <Input 
+                        <Input
+                          name="position"
+                          value={formInput.position}
+                          style={{marginBottom:'1rem'}}  
                           type="text" 
                           id="tipo"
-                          name="name"
+                          onChange={handleOnChange}
+                        
                         /> 
                     </FormGroup>
                     <Row style={{marginTop:'1rem'}}>
