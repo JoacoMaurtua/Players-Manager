@@ -20,18 +20,27 @@ const PlayersStatus = ({list,setList}) => {
     if(activeGreen){
       setActiveRed(false);
       setActiveYellow(false);
+      setPlayerState({
+        state:'Playing'
+      })
     }
-    if(activeRed){
+    else if(activeRed){
       setActiveGreen(false);
       setActiveYellow(false);
+      setPlayerState({
+        state:'Not playing'
+      })
     }
-    if(activeYellow){
+    else if(activeYellow){
       setActiveGreen(false);
       setActiveRed(false);
+      setPlayerState({
+        state:'Undesided'
+      })
     }
   }
 
-
+  //verifyAndSetState();
 
   
  

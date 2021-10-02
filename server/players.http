@@ -7,7 +7,7 @@ POST http://localhost:8000/api/players/create
 Content-Type: application/json
 
 {
-  "name" : "Sergio Busquetes",
+  "name" : "Romeru Lukaku",
   "position":"Forward",
   "state":"Playing"
 }
@@ -28,3 +28,7 @@ Content-Type: application/json
 
 ###DELETE PLAYER
 DELETE http://localhost:8000/api/players/delete/6155f2d42269fad538852e82
+
+
+###GET FOR STATE
+GET http://localhost:8000/api/players/Playing

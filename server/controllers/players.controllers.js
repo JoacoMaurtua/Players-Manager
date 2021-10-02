@@ -9,8 +9,17 @@ const findPlayers = (req,res) =>{
       })
 };
 
+/* const findState =(req,res) =>{
+  Player.find({state:req.params.state})
+      .then(results => res.json({data:results}))
+      .catch(error=>{
+        res.json({error:error, message: 'Estados no encontrados'})
+        res.sendStatus(404)
+      })
+} */
+
 const findSinglePlayer = (req,res) =>{
-  Player.findOne({_id:req.params.id})
+  Player.findById(req.params.id)
       .then(results => res.json({data:results}))
       .catch(error => {
         res.json({error:error, message: 'Jugador no encontrado'})
@@ -46,4 +55,4 @@ const deletePlayer =(req,res) =>{
 }
 
 
-module.exports = {findPlayers,findSinglePlayer,createPlayer,updatePlayer,deletePlayer}
+module.exports = {findPlayers,findSinglePlayer,createPlayer,updatePlayer,deletePlayer,findState}
