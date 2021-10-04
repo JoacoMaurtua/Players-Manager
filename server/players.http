@@ -7,7 +7,7 @@ POST http://localhost:8000/api/players/create
 Content-Type: application/json
 
 {
-  "name" : "Romeru Lukaku",
+  "name" : "Nacho Hernandez",
   "position":"Forward",
   "state":"Playing"
 }
@@ -23,7 +23,7 @@ Content-Type: application/json
 {
   "name" : "Sergio Busquetes",
   "position":"Midfielder",
-  "state":"Playing"
+  "state":"Not_Playing"
 }
 
 ###DELETE PLAYER
@@ -31,4 +31,4 @@ DELETE http://localhost:8000/api/players/delete/6155f2d42269fad538852e82
 
 
 ###GET FOR STATE
-GET http://localhost:8000/api/players/Playing
+GET http://localhost:8000/api/players/state/Not_Playing

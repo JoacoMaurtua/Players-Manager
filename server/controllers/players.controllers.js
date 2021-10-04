@@ -9,14 +9,14 @@ const findPlayers = (req,res) =>{
       })
 };
 
-/* const findState =(req,res) =>{
+const findState =(req,res) =>{
   Player.find({state:req.params.state})
       .then(results => res.json({data:results}))
       .catch(error=>{
         res.json({error:error, message: 'Estados no encontrados'})
         res.sendStatus(404)
       })
-} */
+}; 
 
 const findSinglePlayer = (req,res) =>{
   Player.findById(req.params.id)
@@ -28,6 +28,8 @@ const findSinglePlayer = (req,res) =>{
 };
 
 const createPlayer = (req,res) =>{
+ /*  const players = req.body;
+  players.state = ''; */        //todos arrancan sin estado
   Player.create(req.body)
       .then(results => res.json({data:results}))
       .catch(error=>{

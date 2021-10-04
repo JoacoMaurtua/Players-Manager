@@ -8,7 +8,7 @@ router.get('/players', findPlayers);
 
 router.get('/players/:id',findSinglePlayer);
 
-router.get('/players/:state',findState)
+router.get('/players/state/:state',findState);
 
 router.post('/players/create',createPlayer);
 

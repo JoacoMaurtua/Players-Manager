@@ -16,34 +16,34 @@ const PlayersStatus = ({list,setList}) => {
   console.log(activeRed);
   console.log(activeYellow);
 
-  const verifyAndSetState =()=>{
-    if(activeGreen){
-      setActiveRed(false);
-      setActiveYellow(false);
-      setPlayerState({
-        state:'Playing'
-      })
+  useEffect(()=>{
+    const verifyAndSetState =()=>{
+      if(activeGreen){
+        setActiveRed(false);
+        setActiveYellow(false);
+        setPlayerState({
+          state:'Playing'
+        })
+      }
+      else if(activeRed){
+        setActiveGreen(false);
+        setActiveYellow(false);
+        setPlayerState({
+          state:'Not playing'
+        })
+      }
+      else if(activeYellow){
+        setActiveGreen(false);
+        setActiveRed(false);
+        setPlayerState({
+          state:'Undesided'
+        })
+      }
     }
-    else if(activeRed){
-      setActiveGreen(false);
-      setActiveYellow(false);
-      setPlayerState({
-        state:'Not playing'
-      })
-    }
-    else if(activeYellow){
-      setActiveGreen(false);
-      setActiveRed(false);
-      setPlayerState({
-        state:'Undesided'
-      })
-    }
-  }
+    verifyAndSetState();
+  },[activeGreen,activeRed,activeYellow]);
+    
 
-  //verifyAndSetState();
-
-  
- 
   //en el lado del controlador crear un arreglo que almacene los estados
   //3 variables si una en true las otras son false
 
